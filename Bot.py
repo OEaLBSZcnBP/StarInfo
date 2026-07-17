@@ -9,12 +9,12 @@ dp = Dispatcher()
 
 @dp.message(Command("start"))
 async def start(m: Message):
-    await m.answer("Приветствую! Я бот, который дает развернутую информацию о ботах из звёздного семейства. /help для полного списка команд.")
+    await m.answer("👋Приветствую! Я бот, который дает развернутую информацию о ботах из звёздного семейства. /help для полного списка команд.")
 
 @dp.message(Command("help"))
 async def help_cmd(m: Message):
     await m.answer(
-        "🗂 Команды:\n"
+        "🗂Команды:\n"
         "/start – Запуск бота\n"
         "/help – Эта справка.\n"
         "/info – информация о ботах.\n"
@@ -24,7 +24,7 @@ async def help_cmd(m: Message):
 @dp.message(Command("info"))
 async def info(m: Message):
     await m.answer(
-        "Информация:\n"
+        "ℹ️ Информация:\n"
         "Написаны на языке программирования Python, на библиотеке Aiogram.\n"
         "Кодер: @Luxscer.\n\n"
         "Репозитории на гитхаб:\n"
@@ -38,7 +38,7 @@ async def info(m: Message):
 @dp.message(Command("TgLinks"))
 async def tglinks(m: Message):
     await m.answer(
-        "Ссылки:\n"
+        "📄Ссылки:\n"
         "Чат – https://t.me/DsStarHub.\n"
         "Канал – https://t.me/DsPlusStarHub."
     )
