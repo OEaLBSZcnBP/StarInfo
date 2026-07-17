@@ -1,0 +1,50 @@
+import os
+import asyncio
+from aiogram import Bot, Dispatcher
+from aiogram.filters import Command
+from aiogram.types import Message
+
+bot = Bot(token=os.getenv("BOT_TOKEN"))
+dp = Dispatcher()
+
+@dp.message(Command("start"))
+async def start(m: Message):
+    await m.answer("Приветствую! Я бот, который дает развернутую информацию о ботах из звёздного семейства. /help для полного списка команд.")
+
+@dp.message(Command("help"))
+async def help_cmd(m: Message):
+    await m.answer(
+        "🗂 Команды:\n"
+        "/start – Запуск бота\n"
+        "/help – Эта справка.\n"
+        "/info – информация о ботах.\n"
+        "/TgLinks – Ссылки на чаты/каналы в телеграм."
+    )
+
+@dp.message(Command("info"))
+async def info(m: Message):
+    await m.answer(
+        "Информация:\n"
+        "Написаны на языке программирования Python, на библиотеке Aiogram.\n"
+        "Кодер: @Luxscer.\n\n"
+        "Репозитории на гитхаб:\n"
+        "@Star_def_bot – https://github.com/OEaLBSZcnBP/Star-Defender.\n"
+        "@AIStar_ai_bot – https://github.com/OEaLBSZcnBP/AiStar.\n"
+        "@Star_crypto_bot – https://github.com/OEaLBSZcnBP/Star_crypto_bot.\n"
+        "@DsStarSupportBot – https://github.com/OEaLBSZcnBP/DsStarSupportBot.\n"
+        "@Star_info_bot – https://github.com/OEaLBSZcnBP/StarInfo."
+    )
+
+@dp.message(Command("TgLinks"))
+async def tglinks(m: Message):
+    await m.answer(
+        "Ссылки:\n"
+        "Чат – https://t.me/DsStarHub.\n"
+        "Канал – https://t.me/DsPlusStarHub."
+    )
+
+async def main():
+    await dp.start_polling(bot)
+
+if __name__ == "__main__":
+    asyncio.run(main())
